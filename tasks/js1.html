@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: auto;
+            margin-top: 15vw;
+        }
+
+        .inputt {
+            width: 15vw;
+            height: 15px;
+        }
+
+        .text {
+            margin-top: 50px;
+            border: 1px;
+            border-style: solid;
+            background-color: whitesmoke;
+            max-width: 30%;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(213, 236, 243);">
+    <center>
+        <div class="container">
+
+            <input class="inputt" id="1" onkeypress="keyclick(event)">
+
+            <button onclick="btnclick(event)" type="">Click</button>
+            <button type="reset" onclick="1">Reset</button>
+
+        </div>
+
+        <p class="text" id="txt"></p>
+    </center>
+
+
+    <script>
+//  function btnclick(event)
+//  {
+// if(e.code === "Enter"){
+//     console.log(e.target.value);
+//     document.getElementById('txt').innerText = e.target.value;
+// }
+//  }
+        function keyclick(e) {
+             console.log(e);
+            if (e.code === "Enter") {
+                console.log(e.target.value);
+                document.getElementById('txt').innerText = e.target.value;
+            }
+
+        }
+
+
+        //   var value= 30 + 20;
+        //   console.log(value);
+
+        //   value= value- 10;
+        //    console.log(value);
+
+        //    value=value*2;                                            ---arithmetic opt---------
+        //    console.log(value);
+
+        //    value=value/2;
+
+        //    console.log(value);
+
+        //    value=value%2;
+        //    console.log(value);
+
+
+        // var age = prompt("enter your age");
+        // if (age>=16)
+        //  {
+        // alert("you are eligible to raid rollercoaster");                 -------if statements-----
+
+        // }
+        // else
+        //  {
+        //     alert('your not eligible');
+        // }
+
+        // var hi=confirm('hi');
+
+        //
+        // function add( a,b)
+        // {                                                               <!--- function creation-->
+        //     add=a+b;
+        //     document.write("addtion value ="+add);
+        // }
+
+        // add(5,5);
+
+        // var plang=new Array("java","python",'c++');
+        // console.log(plang);
+        // document.write(plang);
+
+
+
+
+        // let idproof = {
+        //     name: 'jith',
+        //     age: 20,                                                   // object creation
+        //     country: 'india',
+        //     mobile: 8344283430,
+        // };
+        // console.log(idproof.name);
+        // console.log(idproof.age);
+        // console.log(idproof.country);
+        // console.log(idproof.mobile);
+
+        //    -----------------------
+
+        //         const person = {
+        //   firstName: "John",
+        //   lastName: "Doe",
+        //   id: 5566,
+        //   fullName: function() {                                                 //object with fuction creation//
+        //     return this.id;
+        //   }
+        // };
+        // for (let x in person){console.log(person[x]);}
+        // document.write(person.fullName());
+
+
+        // object constructor//
+
+        // function rankCard(name,tamil,eng,math){
+        //     this.RanholderName=name;
+        //     this.tamilMark=tamil;
+        //     this.EnglishMark=eng;
+        //     this.MathsMark=math;
+        //     }
+
+        // const student1= new rankCard('jith',96,90,70);
+
+        //  document.getElementById("demo").innerHTML =student1.RanholderName;
+        // document.getElementById("demo1").innerHTML =student1.tamilMark;
+        // document.getElementById("demo2").innerHTML =student1.EnglishMark;
+        // document.getElementById("demo3").innerHTML =student1.MathsMark;
+
+
+
+        // function information(name,fathername,native)
+        // {
+        //     this.name=name;
+        //     this.fatherName=fathername;
+        //     this.native=native;
+        // }
+        // let info = new information('inthrajith','vijayan','ngm');
+        // console.log(info);
+        //  let info1= new information('abc','cde','tfy');
+        //  console.log(info1);
+
+        //  subjects =['tamil','english','maths'];
+        // subjects.forEach((e)=>console.log(e))
+
+        // for in method
+
+        // let info={name:'jith',age:20};
+        //  for(let x in info){
+        //      console.log(info[x]);
+        //  }
+        // -------for of method---------
+        // languages=['tamil','english','hindi']
+        // {
+        //     for (let x of languages)
+        //     {
+
+        //         console.log(x);
+        //     }
+        // }
+
+        // let info = { name: 'jith', age: 20 };
+        // info.forEach((e) => console.log(e))
+
+        //         test=['jith','hi',50];
+
+        // test.forEach((e)=>console.log(e))
+
+        //   function validateForm() {
+        //       let x=document.forms["myform"]["fname"].value;
+        //       if (x == "") {
+        //           alert("must be filled out");
+        //           return false;
+
+        //       }
+
+        //   }
+
+    </script>
+
+
+    <!-- <form name="myform" action="" onsubmit=" return validateForm()" method="post">
+    Name:<input type="text" name="fname">
+    <input type="submit" value="submit">
+</form> -->
+
+    <p id="1"></p>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="pallindromecheck.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>pallindrome checker</title>
+</head>
+
+<body style="background-color:rgb(244, 252, 248);">
+
+    <center>
+        <form action="">
+            <div class="row ">
+                <div class="col-4">
+                    <div class="container well  col-md-6" style="margin-top: 10%;margin-left: 25%;">
+
+                        <div style="border-style: dashed;" class="card">
+                            <div class="card-header">
+                                <h3>Online Polyndrome Checker</h3>
+                            </div>
+                            <div class="card-body" style="width:60%; padding-bottom: 20%; margin-top: 5%;">
+                                Enter Input: <input id="in" required placeholder="Input">
+                                <button type="button" onclick="myFunc(event)">Submit</button>
+
+                                <button type="button" id="ex" onclick="example(event)">Examples</button>
+
+                                <input onclick="location.reload()" id="reset" style="margin-top: 5%;" type="reset"
+                                    value="Reset">
+                                <br>
+                                <br>
+
+                                <h3>
+                                    <p style="margin-top: 5%;" id="demo"></p>
+                                </h3>
+                                <h5>
+                                    <p style="margin-top: 5%;" id="demo1"></p>
+                                </h5>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+
+    </center>
+  
+
+
+</body>
+
+</html>

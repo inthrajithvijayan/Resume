@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="img" src="lampoff.jpg" ondblclick="switchImg(event)" alt="" height="25%" width="25%">
+
+
+    <button type="button" onclick="onBt(0)">ON</button>
+    <button type="button" onclick="onBt(1)">OFF</button>
+    <br>
+    <!-- <img onclick="" src="lampoff.jpg" alt="" height="25%" width="25%"> -->
+    <script>
+
+        function switchImg(e) {
+            var x = document.getElementById("img");
+            // console.log(x.src); 
+            if (x.src.match("lampon")) {
+                
+                x.src = "lampoff.jpg"
+            }
+            else {
+                x.src = "lampon.jpg"
+            }
+        }
+        function onBt(v) {
+            // console.log(v);
+            var ON = document.getElementById("img");
+
+            console.log("Btn Working");
+            if (v == 0) {
+                console.log("if work");
+
+                ON.src = "lampon.jpg";
+            }
+            else {
+                ON.src = "lampoff.jpg";
+            }
+        }
+    </script>
+</body>
+
+</html>

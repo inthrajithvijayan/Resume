@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EMP_INFORMATIONS>
+  <EMPLOYEE-1>
+    <emp_id>1</emp_id>
+    <name>inthrajith</name>
+    <age>21</age>
+    <gender>male</gender>
+    <mobile>83442834340</mobile>
+    <city>pondy</city>
+  </EMPLOYEE-1>
+  <EMPLOYEE-2>
+    <emp_id>2</emp_id>
+    <name>vijay</name>
+    <age>21</age>
+    <gender>male</gender>
+    <mobile>83442834340</mobile>
+    <city>pondy</city>
+  </EMPLOYEE-2>
+  <EMPLOYEE-3>
+    <emp_id>3</emp_id>
+    <name>ajith&#13;
+             </name>
+    <age>21</age>
+    <gender>male</gender>
+    <mobile>83442834340</mobile>
+    <city>pondy</city>
+  </EMPLOYEE-3>
+</EMP_INFORMATIONS>

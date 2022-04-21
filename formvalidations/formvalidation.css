@@ -1,0 +1,76 @@
+body {
+    font-size: 15px;
+    background: #f6fcf8; 
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background-image:url('support.jpg');
+}
+h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+   
+}
+input[type="text"],select {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.row {
+    padding-bottom: 10px;
+}
+
+.error
+{
+color: red;
+font-size:10px;
+
+}
+input[type="number"]
+{
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+    
+}
+input[type="email"]
+{
+    
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+    
+}
+ input[type="password"]
+{
+    
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+ } 
+    
+input[type="date"]
+{
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+

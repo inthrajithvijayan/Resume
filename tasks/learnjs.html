@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>      
+    <script type="text/javascript">
+              function one()
+          {
+             var y = 0;
+             try {document.write(x);}                
+             catch (e) {document.write(e+"</br>");}
+
+             try 
+             {
+                if (y==0) {throw( "Variable should not hold zero" ); }
+             }                
+             catch (e) {document.write(e+"</br>");}
+
+             finally {document.write("Execution Completed" );}
+          }
+          window.onerror = function (a,b,c)
+          {
+             alert(a);
+             alert(b);               
+             alert(c);
+          }
+    
+    </script>      
+ </head>  
+
+ <body>   
+    <form>
+       <input type="button" onclick="one()" value="Example1">
+       <input type="button" onclick="two()" value="Example2">
+    </form>      
+ </body>
+
+</html>
