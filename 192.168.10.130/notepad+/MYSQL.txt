@@ -1,0 +1,344 @@
+  Putty System login IP:192.168.10.130
+  Putty System login: root - Foni123
+  Putty Server login: root - Foni@123456
+ 
+ DATABASE RENAME PROCEDURES
+  1.BACKUP - #mysqldump -u root -p DATABASE_NAME >DATABASE_FILE_NAME.SQL<ENTER>
+  2.CREATE NEW DATABASE - #mysqladmin -u root -p create DATABASE_NEWNAME<ENTER>
+  3.TRANFER BACKUPDATA -  #mysql -u root -p DATABASE_NEWNAME < DATABASE_OLDNAME.SQL<ENTER>
+                          #	mysql -u root -p <connect to mysql> ..then show database then delete old database.
+						  
+ DESC TABLENAME - SHOW STRUCTURE;						 
+						  
+ MYSQL QUERY_S
+   
+ CREATE DATABASE DATABASENAME  - CREATES A NEW DATABASE.
+  
+// CREATES A NEW TABLE // 
+ 
+ Syntax - CREATE TABLE TABLENAME(COL1,..).  
+ Query  - CREATE TABLE USERS(ID INT NOT NULL AUTO_INCREMENT, NAME VARCHAR(50) NOT NULL,AGE INT NOT NULL, PRIMARY KEY(ID));
+**************************************************************
+ //INSERTS NEW VALUE INTO A TABLE.//
+ Syntax -  INSERT INTO TABLE_NAME VALUES (VALUE1,...);
+ Query  -  INSERT INTO STUDENTS VALUES (NULL,'JITH',21,'MALE','NAGAI','8344283430');
+
+ //ANOTHER WAY OF VALUES INSERT.//
+  Syntax -  INSERT INTO TABLE_NAME (COLUM_NNAME,...) VALUES (VALUE1,...);  
+  
+// MULTIPLE RECORDS INSERT.// 
+ Syntax - INSERT INTO TABLE_NAME (COLUMN_NAME,..) VALUES  (VALUES1),(VALUES2),....;
+ Query  - INSERT INTO STUDENTS VALUES (NULL,'JITH',21,'MALE','NAGAI','8344283430'),(NULL,'JITH',21,'MALE','NAGAI','8344283430')..,;
+*************************************************************** 
+//UPDATE RECORD//
+ SYNTAX - UPDATE TABLE_NAME SET COLUMN1 = VALUE1, COLUMN2 = VALUE2, ...WHERE CONDITION; 
+ Query  - UPDATE INFORMATION SET NAME='SHAHUL',GENDER='MALE'  WHERE ID=6;
+***************************************************************
+// DELETE RECORD//
+  Syntax - DELETE  FROM TABLE_NAME WHERE COLUMN_NAME = VALUE;
+  Query  - DELETE  FROM STUDENTS WHERE  NAME = SHAHUL;
+***************************************************************
+//DELETE COLUMN//
+ ALTER TABLE table_name DROP COLUMN column_name;
+ 
+ //DELETE THE ALL RECORDS FROM THE TABLE//
+  Syntax - TRUNCATE TABLE_NAME;
+  Query  - TRUNCATE STUDENTS;
+***************************************************************
+ //SHOW DATA FROM TABLE//
+  Syntax - SELECT * FROM TABLE_NAME; 
+  
+ //SHOW PARTICULAR RECORDS FROM TABLE//
+  Syntax - SELECT COLUMN_NAME,... FROM TABLE_NAME;
+  Query  - SELECT NAME,MOBILE_NO FROM information;
+***************************************************************
+ //SHOW REQUIRED RECORD//
+  Syntax - SELECT * FROM TABLE_NAME WHERE COLUMN_NAME = FIND VALUE;
+  Query  - SELECT * FROM STUDENTS WHERE MARK = 100;
+*************************************************************** 
+ // ALTER TABLE(ADD NEW COLUMN)//
+  Syntax - ALTER TABLE TABLE_NAME ADD COLUMN_NAME AFTER PREVIOUS COLUMN_NAME;
+  Query  - ALTER TABLE USERS ADD GENDER VARCHAR(6) NOT NULL AFTER AGE (OR) FIRST;
+***************************************************************
+//ADD VALUE TO COLUMN //
+
+ UPDATE TEST SET COLUMN_NAME = VALUE WHERE COND;
+ update test set hash_id='jith' where temp =jith;
+
+ // ADD MULTI COLUMN//
+  Syntax - ALTER TABLE TABLE_NAME ADD COLUMN_NAME_1,ADD COLUMN_NAME_2,...N.
+  Query  - ALTER TABLE INFORMATION ADD MOBILE_NO INT NOT NULL,ADD CITY VARCHAR(20);
+  
+  //CHANGES TO COLUMN DATATYPE & SIZES//
+  Syntax - ALTER TABLE TABLE_NAME MODIFY COLUMN_NAME
+  Query  - ALTER TABLE USERS MODIFY CONTACT VARCHAR(25) NOT NULL;
+  
+  //CHANGE COLUMN NAME//.
+  Syntax - ALTER TABLE TABLE_NAME CHANGE COLUMN OLD_COLUMN  NEW_COLUMN DATATYPE;
+  
+  //CHANGE TABLENAME//
+  Syntax - ALTER TABLE TABLE_NAME RENAME TO NEW_TABLE_NAME;
+  Query  - ALTER TABLE USERS RENAME TO STUDENTS.
+  
+  CHANGE VALUES TO COLOUMN RECORDS
+  Syntax - UPDATE TABLE_NAME SET  COLUMN_NAME= VALUE ..., WHERE COLUMN_NAME= VALUE,;
+  Query  - UPDATE STUDENTS SET MOBILE_NO = 98426806433 WHERE MOBILE_NO = NEW_VALUE;
+  
+  
+****************************************************************
+  MYSQL OPERATOR CONDITIONS
+  
+  * AND - CHECK TRUE CONDITIONS
+	Syntax - SELECT COLUMN1, COLUMN2, ...FROM TABLE_NAME WHERE CONDITION1 AND CONDITION2 AND CONDITION3 ...; 
+    Query  - SELECT * FROM STUDENTS WHERE AGE=20 AND CITY='PONDICHERRY';
+	
+	
+  * OR  - CHECK EITHER TRUE OR FALSE 
+    Syntax - SELECT COLUMN1, COLUMN2, ...FROM TABLE_NAME WHERE CONDITION1 OR CONDITION2 OR CONDITION3 ...; 
+	Query  - SELECT * FROM STUDENTS WHERE AGE=20 OR AGE =40;
+
+  * NOT -CHECK NOT INCLUDE RECORDS 
+    Syntax - SELECT * FROM TABLE_NAME WHERE NOT CONDITION1;
+	Query  - SELECT  FROM STUDENTS WHERE NOT AGE = 20;
+	
+  * >,<,>=,<= 
+    Syntax -
+  
+  * DISTINCT - IT GIVES diffrent VALUES
+    Syntax - SELECT DISTINCT column1, column2, ...FROM table_name; 
+	Query  - SELECT DISTINCT AGE FROM STUDENTS;
+********************************************************************	
+	//TABLE SORTING//	
+	Syntax - SELECT COLUMN1, COLUMN2, ...FROM TABLE_NAME ORDERORDER BY COLUMN1, COLUMN2, ... ASC|DESC; 
+	Query  - SELECT * FROM STUDENTS ORDER BY NAME;
+	ASC    - SELECT * FROM STUDENTS ORDER BY NAME ASC
+	DESC   - SELECT * FROM STUDENTS ORDER BY NAME DESC
+********************************************************************
+	COUNTING THE RECORDS
+  * COUNT(COLUMN_NAME) - COUNTING THE RECORDS. 
+    Syntax - SELECT COUNT (COLUMN_NAME) FROM TABLE_NAME > IT COUNT ALL RECORDS 
+    Query  - SELECT COUNT (CITY) FROM STUDENTS
+********************************************************************	
+  * COUNT (DISTINCT COLUMN_NAME) - IT COUNT UNIQUE RECORDS. > AS...TOTAL
+  
+   USED TO DEFINE THE LIMIT RECORDS
+   Query - select * from EMP_INFORMATION NATURAL join EMP_ATTENDANCE natural join TEMP limit 2,4; it return value start in 4
+   Syntax - SELECT * FROM TABLE_NAME LIMT 0 T0 10 > IT HAS SHOW ONLY 10 RECORDS.
+   
+********************************************************************
+
+  FIND AGGREGATE FUNCTIONS.
+  * MAX
+  * MIN
+  * AVG
+  * ROUND AVG (),0
+  * SUM
+  * COUNT - (GROUP BY) - USED TO SPLITED COUNT.
+
+  Syntax - SELECT * FROM TABLE_NAME WHERE COLUMN_NAME LIKE 
+  '_%' - FIND FIRST,
+  '%_' FIND LAST, 
+  '%_%' FIND MIDDLE.
+   Query - SELECT * FROM STUDENTS WHERE NAME LIKE 'A%';
+********************************************************************
+  MYSQL JOINS
+  
+(LEFT JOIN SHOW ALL RECORDS FROM LEFT SIDE TABLE)
+  
+*LEFT JOIN
+Syntax - SELECT TABLENAME.COLUMN_NAME,..., FROM (PARENT TABLE)TABLENAME LEFT JOIN TABLENAME ON (CHILD_TABLE)TABLE_NAME.COLUMN_NAME=(CHID_TABLE)TABLE_NAME.COLUMN_NAME;
+Query  - 
+SELECT                    information.ID,information.NAME,information.AGE,information.GENDER,information.MOBILE_NO,information.CITY,attendance.ID,attendance.LOGIN_DATE FROM information LEFT JOIN attendance  ON information.ID= attendance.ID;
+********************************************************************		 
+(RIGHT JOIN SHOW ALL RECORDS FROM RIGHT SIDE TABLE)
+
+*RIGHTJOIN - SELECT TABLENAME.COLUMN_NAME,..., FROM (PARENT TABLE)TABLENAME RIGHT  JOIN TABLENAME ON 
+(CHILD_TABLE)TABLE_NAME.COLUMN_NAME=(CHID_TABLE)TABLE_NAME.COLUMN_NAME;
+
+ Query     - SELECT information.ID,information.NAME,information.AGE,information.GENDER,information.MOBILE_NO,information.CITY,attendance.ID,attendance.LOGIN_DATE FROM information right JOIN attendance  ON information.ID= attendance.ID;
+********************************************************************      
+
+ //INNER JOIN// - (The INNER JOIN keyword selects records that have matching values in both tables.)
+  Syntax-SELECT column_name FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;
+  Query - SELECT information.ID,information.NAME,information.AGE,information.GENDER,information.MOBILE_NO,information.CITY,attendance.ID,attendance.LOGIN_DATE FROM information INNER  JOIN attendance  ON information.ID= attendance.ID;
+********************************************************************		  
+ //CROSS JOIN//
+ Syntax -SELECT column_name FROM table1 CROSS JOIN table2; 
+        (The CROSS JOIN keyword returns all records from both tables (table1 and table2)).
+  ******************************************************************** 
+ //OUTER JOIN//
+  LEFT OUTER JOIN
+  SYNTAX - LEFT OUTER JOIN -SELECT * FROM TABLE_NAME LEFT OUTER JOIN TABLE_NAME(CHILD) ON (TABLE_NAME.COLOUMN =TABLE_NAME(CHILD).COLOUMN);
+  Query  - SELECT  * FROM information LEFT OUTER JOIN attendance ON information.ID = attendance.ID; 
+********************************************************************  
+  //RIGHT OUTER JOIN//
+  SYNTAX - SELECT  * FROM TABLE_NAME RIGHT OUTER JOIN TABLE_NAME(PARENT) ON TABLE_NAME.COLUMN_NAME_1 = TABLE_NAME.COLUMN_NAME_2;
+  Query   - SELECT  * FROM information RIGHT OUTER JOIN attendance ON information.ID = attendance.ID;
+ ******************************************************************** 
+ \\NATURAL JOINS// > it returned This join is performed under the condition that both tables have columns with the same name and the same type
+  Syntax - SELECT * FROM table1 NATURAL JOIN table2;
+  Query  - SELECT * from EMP_INFORMATION NATURAL JOIN EMP_ATTENDANCE;
+  
+ //UNION (COMBILE TWO Query RETURN UNIQUE VALUE) OR UNION ALL - RETURN DUPLICATE ALSO
+	SELECT column_name.., FROM table1 UNION SELECT column_name.., FROM table2; 
+	Query - SELECT * FROM information LEFT JOIN attendance ON information.ID=attendance.ID 
+	        UNION ALL 
+			SELECT * FROM attendance  RIGHT JOIN information  ON attendance.ID=information.ID ;
+	        
+ ********************************************************************  
+ //MYSQL - VIEW//   
+  SYNTAX - CREATE VIEW view_name AS SELECT column1, column2, ... FROM table_name WHERE condition; 
+  Query -  CREATE VIEW SAMPLE_VIEW AS SELECT ID,NAME,CITY FROM information;
+
+ //DELETE VIEWS//
+  SYNTAX  - DROP VIEW VIEW_NAME;
+  Query   - DROP VIEW SAMPLE_VIEW;
+	
+	//ALTER VIEW/ ****DON'T DO THIS JUST KNOW***
+	QUERY - UPDATE total_tables SET LOGGED_DATE='2022-04-06' WHERE EMP_ID=16;
+	
+  //HOW TO VIEW MY VIEWS//
+  SYNTAX - SHOW FULL TABLES [{FROM | IN } database_name] WHERE table_type = 'VIEW';
+  Query - SHOW FULL TABLES IN INTHRAJITH WHERE TABLE_TYPE='VIEW';
+*************************************************************************************************
+   
+//MySQL - TRIGGER//
+  SYNTAX:CREATE TRIGGER trigger_name trigger_time trigger_event ON tbl_name FOR EACH ROW {trigger_body}
+  trigger_time:{ BEFORE | AFTER } 
+  trigger_event: { INSERT | UPDATE | DELETE }
+  Query -  CREATE TRIGGER NEW_ENTRY AFTER INSERT ON information FOR EACH ROW  INSERT INTO NEW_STUDENT(ID,NAME)VALUES (NEW.ID,NEW.NAME);
+   
+ DROP TRIGGER TRIGGERNAME; 
+   
+//HOW TO VIEW TRIGGERS //
+  SYNTAX - SHOW TRIGGERS FROM/IN DATABASENAME
+  Query  - SHOW TRIGGERS IN INTHRAJITH;
+   
+Trigger Event	OLD 	NEW
+  INSERT		No	    Yes
+  UPDATE		Yes		Yes
+  DELETE		Yes		No
+*************************************************************************************************
+//INDEX CREATION IN MYSQL//
+  (PRIMARY KEY, UNIQUE, INDEX,FULLTEXT)
+  
+ SYNTAX - CREATE INDEX index_name ON table_name (column1, column2, ...); 
+ Query  - CREATE INDEX STUDENT_NAME ON INFORMATION (NAME);
+  
+   Syntax - ALTER TABLE TABLE_NAME ADD UNIQUE (column_name); 
+   query  - ALTER TABLE EMP_INFORMATION ADD INDEX (EMP_ID);
+   
+   DROP INDEX index_name ON table_name; 
+ 
+ //SHOW INDEX FROM INFORMATION FROM INTHRAJITH;//
+	
+**************************************************************************************************
+//PRIMARY KEY//
+Syntax - ALTER TABLE TABLE_NAME ADD PRIMARY KEY (COLUMN_NAME); 
+  
+//DELETE  PRIMARY//
+Syntax - ALTER TABLE TABLE_NAME DROP PRIMARY KEY; 
+**************************************************************************************************
+//FOREIGN KEY IN MYSQL//
+SYNTAX - CREATE TABLE TABLE_NAME(COLOUMN.. FOREIGN KEY(COLOUMN) REFERENCES PRIMARY_TABLE_NAME(COLOUMN);
+QUERY  - CREATE TABLE ATTENDANCE (ID INT NOT NULL AUTO_INCREMENT,PRESENT_DATE DATE,FOREIGN KEY(ID) REFERENCES INFORMATION(ID));
+
+ //FOREIGN KEY ADD//
+ SYNTAX - ALTER TABLE TABLENAME ADD FOREIGN KEY (COLOUMN) REFERENCES PRIMARY_TABLE_NAME(COLOUMN);
+ QUERY  - ALTER TABLE EMP_ATTENDANCE  ADD FOREIGN KEY (EMP_ID) REFERENCES EMP_INFORMATION (EMP_ID);
+          
+ \\CONSTRAINT//
+ 
+ ALTER TABLE EMP_ATTENDANCE ADD CONSTRAINT CONSTEMP FOREIGN KEY(EMP_ID) REFERENCES EMP_INFORMATION(EMP_ID);
+ 
+ //DROP FOREIGN KEY//
+ SYNTAX - ALTER TABLE TABLENAME DROP FOREIGN KEY Constraint_name; 
+ QUERY  - ALTER TABLE ATTENDANCE DROP FOREIGN KEY ID;
+		- ALTER TABLE EMP_ATTENDANCE DROP FOREIGN KEY EMP_ATTENDANCE_ibfk_1;
+ 
+ *************************************************************************************************
+ //CREAT STORED-PROCEDURES//
+ DELIMITER //
+ CREATE PROCEDURE EMPINFO()
+    -> BEGIN
+    -> SELECT * FROM EMP_INFORMATION;
+    -> END
+	//
+\\VIEW ALL STORED PROCEDURES//	
+Syntax - SHOW PROCEDURE STATUS WHERE Db = 'dbname';
+Query - show procedure status where db='INTHRAJITH';
+
+***************************************************************************************************
+TRANSACTION IN MYSQL(TCL-TRANSACTION CONTROL LANGUAGE)
+
+ *COMMIT - 
+ *ROLLBACK
+ *SAVEPOINT -
+ 
+ TCL is short name of Transaction Control Language which deals with a transaction within a database.
+
+    COMMIT - commits a Transaction
+    ROLLBACK - rollback a transaction in case of any error occurs
+    SAVEPOINT - to rollback the transaction making points within groups
+    SET TRANSACTION - specify characteristics of the transaction
+***************************************************************************************************
+MySQL Table Locking
+ 
+ * read lock
+ * write lock 
+ 
+     Syntax - LOCK TABLES table_name [READ | WRITE];  
+	 
+***************************************************************************************************
+MYSQL ENCRYP & DECRYPT
+
+ENCRYPT - AES_ENCRYPT('VALUE','KEY');
+	      INSERT INTO TABLENAME AES_ENCRYPT('AJITH','12345678') WHERE ROLL_NO=3;
+
+DECRYPT - AES_DECRYPT('VALUE','KEY');
+        -  select name,age,gender,mobile_no,city,logon_date,AES_DECRYPT(ENCRYPT_FILE,'12345678')AS DECRYPTED from total_table;
+***************************************************************************************************		
+//MOVE TABLES ONE DB TO ANOTHER DB//			
+Syntax:
+		CREATE DATABASE DATABASE_NAME;
+		RENAME TABLE OLDDBNAME.TABLE_NAME TO NEWDBNAME.TABLE_NAME;
+query:
+		CREATE DATABASE test1;
+		RENAME TABLE test.COLLEGE TO test1.COLLEGE;
+***************************************************************************************************
+
+supportsla
+
+select AES_DECRYPT(title,'ENAJrd0tKk7cmOMa96SWqFQP') as title_decrypted from tickets limit 5;
+
+select AES_DECRYPT(description,'ENAJrd0tKk7cmOMa96SWqFQP') as description_decrypted from tickets limit 5;
+
+AES_DECRYPT(message,'ENAJrd0tKk7cmOMa96SWqFQP') from ticket_details limit 10;
+
+select AES_DECRYPT(first_name,'ENAJrd0tKk7cmOMa96SWqFQP')as fname,AES_DECRYPT(last_name,'ENAJrd0tKk7cmOMa96SWqFQP')as lname,AES_DECRYPT(email,'ENAJrd0tKk7cmOMa96SWqFQP')as email,AES_DECRYPT(mobile,'ENAJrd0tKk7cmOMa96SWqFQP')as mobile,AES_DECRYPT(phone,'ENAJrd0tKk7cmOMa96SWqFQP')as phone,AES_DECRYPT(extension,'ENAJrd0tKk7cmOMa96SWqFQP')as extension from users limit 10;
+
+***************************************************************************************************
+HASH_CODE
+
+MD5(str) 128-bit
+
+insert into test (temp) values MD5('jith');
+***************************************************************************************************
+//CONCATE IN MYSQL//
+Syntax - SELECT CONCAT(COLOUMN,"-",...n) FROM TABLE_NAME;
+query - select CONCAT(EMP_ID,"-",NAME,"-",MOBILE_NO) AS CONCAT from EMP_INFORMATION; 
+***************************************************************************************************
+\\UPPERCASE && LOWERCASE//
+select EMP_ID,LCASE(NAME) as uppername,AGE,GENDER from EMP_INFORMATION;
+***************************************************************************************************
+\\ON DELETE CASCADE//  -- can delete in primary table auto deleted child table;
+create table testing2(client_id int not null auto_increment,city varchar(20),foreign key(client_id) references testing(id)ON DELETE CASCADE);
+***************************************************************************************************
+//DUPLICATE KEY//
+insert into testing values(2,'vijay') on duplicate key update name='vijay';
+
+<<<<<<<<<<<MYSQL BASIC QUERIES>>>>>>>>>>>
+													query(S)
+To check which database is used:     		   select database();
+To list all the indexes of a table: 		   show index from [table];
+To display the execution plan of an SQL query: EXPLAIN SELECT * FROM [tablename];

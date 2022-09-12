@@ -1,0 +1,8 @@
+\n – New Line
+\r – Carriage Return
+\t – Tab
+\\ – Backslash Character
+\” – Double Quotation Mark
+\$ – Dollar sign (prevents text from being treated as a variable name)
+\034 – Octal ASCII value
+\xOC – Hexadecimal ASCII Value

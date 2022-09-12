@@ -1,0 +1,16 @@
+git init => Initialize git
+git status => Check the status of local and remote
+git add <file or folder> => Add a new file or folder to remote
+git commit -m 'Commit message' => Commit changes from local to remote
+git push <repo> <localbranch> => Push changed file or folder from local to remote
+git push <repo> <localbranch>:<remotebranch> => Push file or folder from local to selected remote branch
+git pull <repo> <localbranch> => Copy file & folders from remote to local
+git pull <repo> <remotebranch>:<localbranch> => Copy file & folders from selected branch (remote) to local branch
+git branch => List branch
+git checkout <branchname> => Switch to branch
+git checkout -b <branchname> => Create new branch
+
+
+HOST REPOSITORY
+git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"

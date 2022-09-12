@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TICKTET_INFO>
+  <ticketDetails ticket="7428">
+    <id>14712</id>
+    <ticket_id>7428</ticket_id>
+    <ticket_type>0</ticket_type>
+    <ticket_for>1</ticket_for>
+    <requester_id>2962</requester_id>
+    <user_company_id>1</user_company_id>
+    <priority_id>159</priority_id>
+    <status_id>3</status_id>
+    <department_id>0</department_id>
+    <title>test [ 17 feb ticket ]</title>
+    <description>&lt;p&gt;test [ 17 feb ticket ]&lt;/p&gt;</description>
+    <first_response_time>2022-02-17 04:31:32</first_response_time>
+  </ticketDetails>
+</TICKTET_INFO>

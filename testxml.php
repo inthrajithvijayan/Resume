@@ -20,17 +20,14 @@ if($numrow>0)
     $xml = new DOMDocument("1.0" ,'utf-8');
      $xml->formatOutput=true;
     //rootelement -inthrajith
-    $INTHRAJITH=$xml->createElement("EMP_INFORMATIONS");
-    $xml->appendChild($INTHRAJITH);
+    $root=$xml->createElement("EMP_INFORMATIONS");
+    $xml->appendChild($root);
 
-    while($row=mysqli_fetch_array($result))
+    while($row=mysqli_fetch_assoc($result))
     {
     $EMP_INFORMATION=$xml->createElement("EMPLOYEE"."-".$row['EMP_ID']);
-    $INTHRAJITH->appendChild($EMP_INFORMATION);
+    $root->appendChild($EMP_INFORMATION);
     //element -->
-     $emp_id=$xml ->createElement('emp_id',$row['EMP_ID']);
-     $EMP_INFORMATION -> appendChild($emp_id);
-
     $name=$xml ->createElement('name',$row['EMP_NAME']);
     $EMP_INFORMATION -> appendChild($name);
 
@@ -48,11 +45,15 @@ if($numrow>0)
     }
    
     echo "<xmp>".$xml->saveXML()."</xmp>";
-    $xml->save("Empinfo.xml");
+    $xml->save("D:\inthrajith\Empinfo.xml");
 }
 else
 {
     echo "error";
 }
 }
+
+
+
+
 ?>

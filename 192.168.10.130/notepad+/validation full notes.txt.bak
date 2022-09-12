@@ -1,0 +1,389 @@
+//how to strore values into mysql(*javascript,*ajax,*php)
+************************************step -1********************
+1.javascript---------- Get the values into javascript -------
+{
+function FunctionName(event)
+{
+   var id name/ name  = document.myform.id name/ name ..value;
+   
+    var id name/ name  = document.myform.id name/ name ..value;
+    var id name/ name  = document.myform.id name/ name .value;
+    var id name/ name  = document.myform.id name/ name ..value;
+    var id name/ name  = document.myform.id name/ name ..value;
+    var id name/ name  = document.myform.id name/ name ..value;
+
+    var id name/ name Err = id name/ name Err = id name/ name Err = mobileErr =id name/ name Err=id name/ name Err= true;
+
+    var dataString = '&id name/ name =' + id name/ name  +'&id name/ name ='+ id name/ name + '&id name/ name ='+ id name/ name  +'&id name/ name =' + id name/ name + '&id name/ name =' + id name/ name  + '&id name/ name ='+ id name/ name ;
+    var id name/ name  = document.myform.id name/ name.value;
+	--------validation valules-------
+	if (fname == "") 
+    {
+        ErroMsg("nameErr", "please enter your name");
+
+    }
+    else {
+        var regex = /^[a-zA-Z\s]+$/;
+
+        if (regex.test(fname) === false) {
+            ErroMsg("nameErr", "Please enter a valid name");
+        }
+        else {
+            ErroMsg("nameErr", "");
+            fnameErr = false;
+        } 
+       
+    }
+    if (lname == "") 
+    {
+        ErroMsg("lnameErr", "please enter your lastname");
+
+    }else 
+    {
+        var regex = /^[a-zA-Z\s]+$/;
+
+        if (regex.test(lname) === false) {
+            ErroMsg("lnameErr", "Please enter a valid name");
+        }
+        else {
+            ErroMsg("lnameErr", "");
+            lnameErr = false;
+        } 
+    }
+
+    if(fname.length>15)
+    {
+      ErroMsg("nameErr","Name must be include 15 char");
+    }  
+    if(lname.length>10)
+    {
+      ErroMsg("lnameErr","LastName must be include 10 char");
+    } 
+    if(gender=="")
+    {
+        ErroMsg("genderErr", "Please enter your gender");
+    } 
+    if (email == "") {
+        ErroMsg("emailErr", "Please enter your email address");
+    }
+    else {
+        var regex = /^\S+@\S+\.\S+$/;
+        if (regex.test(email) === false) {
+            ErroMsg("emailErr", "Please enter a valid email address");
+        } else {
+            ErroMsg("emailErr", "");
+            emailErr = false;
+        }
+    }
+
+    if (mobileno == "") 
+    {
+        ErroMsg("mobileErr", "Please enter your mobile number");
+    } else 
+    {
+        var regex = /^[0-9]\d{9}$/;
+
+        if (regex.test(mobileno) === false) 
+        {
+            ErroMsg("mobileErr", "Please enter a valid 10 digit mobile number");
+        } else {
+            ErroMsg("mobileErr", "");
+            mobileErr = false;
+        }
+    }
+    if (Dob == "") {
+        ErroMsg("dobErr", "Please enter your DOB");
+    }
+    else {
+        ErroMsg("dobErr", "")
+        dobErr = false;
+    }
+    if ((fnameErr ||lname|| emailErr || mobileErr||DobErr) == true) {
+        return false;
+    }
+    else {
+        // Creating a string from input data for preview
+        
+        var dataPreview =
+            "Full Name: " + fname + "\n" +
+            "Last Name: " +lname+"\n"+
+            "Gender: " + gender+'\n'+
+            "Email Address: " + email + "\n" +
+            "Mobile Number: " + mobileno + "\n"+
+             "Date of Birth: " + Dob + "\n"
+
+             // AJAX code to submit form.
+
+        $.ajax({
+            type: "POST",
+            url: "valid.php",
+            data: dataString,
+            cache: false,
+            success: function(html) 
+            {
+             alert(html);
+            }
+            });
+            }
+    console.log(dataPreview)
+    
+};
+********************************************************************************
+  example:***********************************************
+    function ValidateForm(event) {
+    console.log("func work");
+    event.preventDefault();
+    var fname = document.myform.fname.value;
+    // console.log(uname)
+    var lname=document.myform.lname.value;
+    var email = document.myform.email.value;
+    var mobileno = document.myform.mobileno.value;
+     var Dob = document.myform.Dob.value;
+     var gender=document.myform.gender.value;
+
+    var fnameErr = lnameErr = emailErr = mobileErr =DobErr=genderErr= true;
+
+    var dataString = '&fname=' + fname +'&lname='+ lname + '&gender='+ gender +'&email=' + email + '&mobileno=' + mobileno + '&Dob='+ Dob;
+   
+   ***********************************************************
+   link to ajax to php 
+   
+2.$.ajax({
+            type: "POST",  // what type of method
+            url: "valid.php",  // server side validation page to link 
+            data: dataString,  // declaration of values name
+            cache: false, // default
+            success: function(html)  
+            {
+             alert(html);
+            }
+            });
+            }
+*****************************************end************************
+			
+			
+3.php --------- php to mysql-----
+
+************step 2******** insert mysql driver++++
+$conn = mysqli_connect('localhost', 'root', '','mydba');
+if(! $conn )  
+{  
+  die('Could not connect: ' . mysqli_error());  
+}  
+else{
+	echo 'Connected successfully'; 
+} 
+*************************************************
+
+
+*************step 3******************************
+assining the value formates
+Example:-
+
+$id name/ name = $_POST['id name/ name '];
+$id name/ name = $_POST['id name/ name '];
+$id name/ name = $_POST['id name/ name '];
+$id name/ name = $_POST['id name/ name '];
+$id name/ name =$_POST['id name/ name '];
+$id name/ name =$_POST['id name/ name '];
+
+
+ ----------------insert the values------------------'
+ 
+ $sql = "INSERT INTO table_name (column names) VALUES 
+('".data1."','".data2."','".data3."','".data4."')"
+
+example
+
+$sql = "INSERT INTO form_values (fname,lname,gender,email,mobileno,Dob) VALUES 
+('".$fname."','".$lname."','".$gender."','".$email."',$mobileno,'".$Dob."')";
+
+--------------------------------------------------------
+
+-----------check the mysql connection and sql querry-------------
+if (mysqli_query($conn,$sql)) 
+{
+	echo "Record was inserted!";
+
+ } else
+  {
+	echo "Error: " . $sql . ":-" . mysqli_error($conn);
+ }
+ mysqli_close($conn);
+
+
+
+------------display the mysql stored values----------------------
+<?php
+$conn = mysqli_connect('localhost', 'root', '','mydba');
+ 
+if(! $conn )
+{
+die('connection error'.mysqli_connect_error());
+}
+$sql = "SELECT fname,lname,gender,email,mobileno,Dob FROM form_values" ;
+
+$result= mysqli_query($conn,$sql);
+$numrow =mysqli_num_rows($result);
+if($numrow>0)
+{
+while($row = mysqli_fetch_assoc($result)){
+echo '<prev>';
+
+echo $row['fname'];
+echo $row['lname'];
+echo $row['gender'];
+echo $row['email'];
+echo $row['mobileno'];
+echo $row['Dob'];
+echo '<prev>';
+}
+}
+else
+{
+echo "record nOt found";
+}
+
+?>
+
+----------------display the value in table------------
+//connect the mysql driver//
+//
+ <?php
+$conn = mysqli_connect('localhost', 'root', '','mydba');
+ 
+if(! $conn )
+{
+die('connection error'.mysqli_connect_error());
+}
+$sql = "SELECT fname,lname,gender,email,mobileno,Dob FROM form_values" ;
+
+$result= mysqli_query($conn,$sql);
+$numrow =mysqli_num_rows($result);
+
+if($numrow>0)
+{
+    echo '<table class="dbresult">';
+ echo'<tr>';
+ echo '<th>FIRST NAME</th>';
+ echo '<th>LAST NAME</th>';
+ echo '<th>GENDER</th>';
+ echo '<th>EMAIL ID </th>';
+ echo '<th>MOBILE NUMBER</th>';
+ echo '<th>DATE OF BIRTH</th>';
+ echo '</tr>';
+while($row = mysqli_fetch_assoc($result))
+{
+
+
+echo '<tr>';
+  echo '<td>' .$row['fname'].'</td>';
+  echo '<td>' .$row['lname'].'</td>';
+  echo '<td>' .$row['gender'].'</td>';
+  echo '<td>' .$row['email'].'</td>';
+  echo '<td>' .$row['mobileno'].'</td>';
+  echo '<td>' .$row['Dob'].'</td>';
+  echo '</tr>';
+} 
+  echo '</table>';
+}
+else
+{
+echo "record nOt found";
+}
+?>
+  
+ -------table style-------------
+ .dbresult,.dbresult td,dbresult th{
+ border:1px solid black;
+ border-collabse:collapse;
+ padding:8px;
+ }
+ .dbreslt{
+ width:800px;
+ margin:auto;
+ }
+ .dbresult tr:nth-child(odd){
+ background-color:#b2d0d6;
+ }
+ .dbresult tr:nth-child(event){
+ background-color:lightcyan;
+ }
+ ---------------------------end----------------------------------------
+ ------------------------------------delete values into db----------------------------------
+ <?php
+$con=new mysqli('localhost','root','','crud_operation');
+
+if (! $con) 
+{
+    die("Connection failed: " .  mysqli_error());
+
+  } 
+
+if (isset($_GET['deleteid'])) {
+$id=$_GET['deleteid'];
+
+$sql="DELETE FROM crud WHERE id=$id";
+
+$result = mysqli_query($con,$sql);
+
+if($result)
+ {
+    echo "deleted successfully";
+    header('location:crudindex.php');
+    # code...
+}
+else{
+    die (mysqli_error($con));
+}
+
+}
+mysqli_close($con);
+    
+?>
+ ------------------------------------end----------------------------------------------------
+ ----------------------------------update values into db---------------------------------------
+ <?php
+$con = new mysqli('localhost','root','','crud_operation');
+if (! $con) 
+{
+    die("Connection failed: " .  mysqli_error());
+
+  } 
+
+
+  $id=$_GET['updateid'];
+  $sql="SELECT * from crud where id=$id ";
+  $result=mysqli_query($con,$sql);
+  $row= mysqli_fetch_assoc($result);
+
+  $firstname=$row['firstname'];
+  $lastname=$row['lastname'];
+  $gender=$row['gender'];
+  $email=$row['email'];
+  $mobile=$row['mobile'];
+
+  if(isset($_POST['submit']))
+  {
+    $firstname=$_POST['firstname'];
+    $lastname=$_POST['lastname'];
+    $gender=$_POST['gender'];
+    $email=$_POST['email'];
+    $mobile=$_POST['mobile'];
+
+    $sql = "UPDATE crud SET firstname='$firstname',lastname='$lastname',gender='$gender',email='$email',mobile=$mobile where id=$id";
+
+    $result=mysqli_query($con,$sql);
+
+  if ($result) 
+  {
+      //  echo "Updated SuccessFully";
+      header('location:crudindex.php');     
+   } else
+    {
+      echo "Error: " . $sql . ":-" . mysqli_error($con);
+   }
+   mysqli_close($con);
+}
+?>
+--------------------------------------------------end----------------------------------------

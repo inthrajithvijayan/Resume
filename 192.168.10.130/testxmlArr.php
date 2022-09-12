@@ -1,44 +1,41 @@
 <?php
 /* DB connection*/
-$con=mysqli_connect("localhost", "root", "", "inthrajith");
-
-if(!$con){
-    echo "DB not Connected...";
-    exit();
-}
+include "connection.php";
   // retrive data from db
     $sql="Select * from EMP_INFORMATION";
-    $empArr=array();
-    $result =mysqli_query($con,$sql);
-    $numrow =mysqli_num_rows($result);
-    if($numrow>0)
-    {
-             //$row = $result->fetch_assoc()
-       
-        while($row= mysqli_fetch_assoc($result))
-        {
-            array_push($empArr,$row);
-        }
-        if(count($empArr))
-        {
-            createXMLfile($empArr);
-            
+    $empArr = array();
+    $result = mysqli_query($con,$sql);
 
+    if($result)
+{	
+         //$row = $result->fetch_assoc()
+        while($row = mysqli_fetch_assoc($result))
+ {
+            array_push($empArr,$row);
+		    //print_r($empArr);
+		    //break;
         }
-        $result->free();
+        if($empArr) {
+            createXMLfile($empArr);
+        }
     }
-    $con-> close();
+	$con-> close();
     
 function createXMLfile($empArr)
 {
-    $filePath = 'xml\emp.xml';
+	//echo "func working";
     $xml = new DOMDocument('1.0','utf-8');
-    $xml->formatOutput=true;
-    $root = $xml ->createElement('EMPLOYEE_INFORMATION');
+    $xml->formatOutput=true;		
+    $filePath = 'downloads/emp.xml';   
+    $root = $xml->createElement('EMPLOYEE_INFORMATION');
+    $xml->appendChild($root);
 
-    for($i=0;$i<count($empArr);$i++){
+    for($i=0;$i<count($empArr);$i++) {	
+ 	    //echo " looop work";
+	    //print_r($empArr);
+
         $emp_id =$empArr[$i]['EMP_ID'];
-        $emp_name = htmlspecialchars($empArr[$i]['EMP_NAME']);
+        $emp_name =$empArr[$i]['NAME'];
         $age = $empArr[$i]['AGE'];
         $gender = $empArr[$i]['GENDER'];
         $mobile = $empArr[$i]['MOBILE_NO'];
@@ -59,15 +56,17 @@ function createXMLfile($empArr)
         $mobile =$xml->createElement('mobile',$mobile);
         $emp->appendChild($mobile);
 
-        $city = $xml ->createElement('city',$city);
+        $city = $xml->createElement('city',$city);
         $emp->appendChild($city);
 
         $root->appendChild($emp);
     }
-    $xml->appendChild($root);
-    // echo "<a href='".$filePath."'>Click</a>";
+	
+     //echo "<a href='".$filePath."'>Click</a>";
+
      echo "<xmp>".$xml->saveXML()."</xmp>";
-    $xml->save($filePath);
+   	 $xml->save($filePath);
+		
 }
 
 ?>

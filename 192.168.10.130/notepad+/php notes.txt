@@ -1,0 +1,16 @@
+\n – New Line
+\r – Carriage Return
+\t – Tab
+\\ – Backslash Character
+\” – Double Quotation Mark
+\$ – Dollar sign (prevents text from being treated as a variable name)
+\034 – Octal ASCII value
+\xOC – Hexadecimal ASCII Value
+
+
+Php Array Functions
+
+Array_push ==========> add a element in last 
+Array_unshift =======> add a element in first 
+Array_pop()======>    delete a last element in the array
+array_shift=======> delete a first element in the array

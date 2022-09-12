@@ -1,0 +1,45 @@
+v.ramamurthy@fonicom.com
+
+i.vijayan@fonicom.com
+p-Inthra@1234
+PIN-075321
+
+ https://preview.keenthemes.com/metronic/demo1/index.html -- use for frontend_dev
+ 
+
+
+  TRIGGER -DONE
+  JOINS - DONE
+  VIEWS - DONE 
+  INDEX CREATION - DONE 
+  PRIMARY KEY AND FOREIGN KEY - DONE
+  STORED PROCEDURES -DONE
+  TRANSACTION - PENDING
+  
+  MY TRIGGERS - NEW_EMP_DETAILS ,NEW_TEMP_ENTRY;
+  MY VIEWS - EMP_NAMES;
+  
+  aes_encrypt('','')
+  insert into TEMP values(13,aes_encrypt('inthrajith','key'),9751988718);
+  
+  SELECT NAME ,AES_DECRYPT(NAME,'key') from TEMP;
+  
+ ERROR - Cannot add or update a child row: a foreign key constraint fails 
+ (`INTHRAJITH`.`STUDENT_ATTENDANCE`, CONSTRAINT `STUDENT_ATTENDANCE_ibfk_1` 
+ FOREIGN KEY (`STUDENT_ID`) REFERENCES `STUDENT_INFORMATION` (`STUDENT_ID`))
+ 
+ tickets
+ tickets_details
+ user
+ ticket_status
+ ticket_department
+ ticket_type
+ 
+ 
+ select a.requester_id, aes_decrypt(b.first_name, 'ENAJrd0tKk7cmOMa96SWqFQP') as fname ,aes_decrypt(b.last_name, 'ENAJrd0tKk7cmOMa96SWqFQP') as lname from tickets a left join users b on a.requester_id = b.id order by a.requester_id desc limit 1200, 5;
+
+ select a.id,a.requester_id, aes_decrypt(b.first_name, 'ENAJrd0tKk7cmOMa96SWqFQP') as fname ,aes_decrypt(b.last_name, 'ENAJrd0tKk7cmOMa96SWqFQP') as lname,c.created_by,d.status,e.description,f.company_id from tickets a left join users b on a.requester_id = b.id left join ticket_details c on a.requester_id = c.id left join ticket_status d on a.requester_id=d.id left join ticket_department e on  a.requester_id = e.id left join ticket_types f on a.requester_id = f.id limit 5;
+ 
+ mysql> select a.requester_id, a.ticket_id, a.title as subject, aes_decrypt(a.title, 'ENAJrd0tKk7cmOMa96SWqFQP') as title, aes_decrypt(b.first_name, 'ENAJrd0tKk7cmOMa96SWqFQP') as fname ,aes_decrypt(b.last_name, 'ENAJrd0tKk7cmOMa96SWqFQP') as lname, b.user_type as user_type, aes_decrypt(c.first_name, 'ENAJrd0tKk7cmOMa96SWqFQP') as agent, c.user_type from tickets a left join users b on a.requester_id = b.id left join users c on a.supporter_id = c.id where a.supporter_id > 0 order by a.requester_id desc limit 10, 5;
+ 
+  select id,name,description from ticket_department order by id ASC limit 10;

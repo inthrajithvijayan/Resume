@@ -67,7 +67,7 @@
        
       if(! $conn )  
       {  
-        die('Could not connect: ' . mysqli_error());  
+        die('Could not connect: ' . mysqli_connect_error());  
       }  
       $page=1;
       if(isset($_GET["page"]))

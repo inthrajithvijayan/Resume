@@ -1,13 +1,13 @@
 <?php 
-include 'connection.php';
-// $conn = mysqli_connect('localhost', 'root', '','crud_operation');
-// if(! $conn )  
-// {  
-//   die('Could not connect: ' . mysqli_error());  
-// }  
-// else{
-// 	echo 'Connected successfully  '; 
-// } 
+
+$conn = mysqli_connect('localhost', 'root', '','crud_operation');
+if(! $conn )  
+{  
+  die('Could not connect: ' . mysqli_connect_error());  
+}  
+else{
+	echo 'Connected successfully  '; 
+} 
 
     $firstname=$_POST['fname'];
     $lastname=$_POST['lname'];

@@ -21,19 +21,17 @@ if($numrow>0)
  echo '<th>MOBILE NUMBER</th>';
  echo '<th>DATE OF BIRTH</th>';
  echo '</tr>';
-
+ 
 while($row = mysqli_fetch_assoc($result))
 {
-
-
 echo '<tr>';
   echo '<td>' .$row['fname'].'</td>';
-  echo '<td>' .$row['lname'].'</td>';
-  echo '<td>' .$row['gender'].'</td>';
-  echo '<td>' .$row['email'].'</td>';
-  echo '<td>' .$row['mobileno'].'</td>';
-  echo '<td>' .$row['Dob'].'</td>';
-  echo '</tr>';
+  // echo '<td>' .$row['lname'].'</td>';
+  // echo '<td>' .$row['gender'].'</td>';
+  // echo '<td>' .$row['email'].'</td>';
+  // echo '<td>' .$row['mobileno'].'</td>';
+  // echo '<td>' .$row['Dob'].'</td>';
+   echo '</tr>';
 } 
   echo '</table>';
 }

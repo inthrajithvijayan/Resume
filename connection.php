@@ -1,11 +1,16 @@
 
 <?php
-$conn = mysqli_connect('192.168.10.130','localhost','Foni@123456');
+$con=mysqli_connect("localhost", "root", "", "inthrajith");
      
-if (!$conn) 
+if (!$con) 
 {
     die('Could not connect: ' . mysqli_error());
 }
-echo 'Connected successfully';
-mysqli_close($conn);
+// else{
+//     //echo 'Connected successfully';
+   
+// }
+
 ?>
+
+

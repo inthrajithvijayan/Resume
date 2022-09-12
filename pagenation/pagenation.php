@@ -1,7 +1,7 @@
 <?php 
-$conn = new mysqli('localhost','root','','crud_operation');
+$conn = mysqli_connect('localhost', 'root', '', 'questionaire');
 
-$sql="select * from pagenation";
+$sql="select * from questions";
 
 $result= mysqli_query($conn,$sql);
 
@@ -17,8 +17,7 @@ $page=1;
 }
 $start_from=($page-1)*5;
 
-$sql="select * from pagenation limit $start_from,$num_per_page";
-
+$sql="select * from questions limit $start_from,$num_per_page";
 $result=mysqli_query($conn,$sql);
 ?>
 <!DOCTYPE html>
@@ -48,7 +47,6 @@ $result=mysqli_query($conn,$sql);
             background:lightblue;
         }
         .table {
-           
             margin-top:10px;
             border:1px;
             margin-left:10px;
@@ -65,7 +63,7 @@ $result=mysqli_query($conn,$sql);
 <table class="table table-bordered">
 <tr>
 <th>ID</th>
-<th>Temp</th>
+<th>questions</th>
 </tr>
 
 <?php
@@ -75,8 +73,8 @@ while($rows=mysqli_fetch_array($result))
 {
 ?>
 <tr>
-    <td><p class="items"><?php echo $rows['id'];?><p></td>
-    <td><p class="items"><?php echo $rows['Temp']?><p></td>
+    <td><p class="items"><?php echo $rows['qid'];?><p></td>
+    <td><p class="items"><?php echo $rows['questions']?><p></td>
     </tr>
 <?php
 }
@@ -85,7 +83,7 @@ while($rows=mysqli_fetch_array($result))
                                                     
 <?php
                                                 //pagenation          
-$sql="select * from pagenation";
+$sql="select * from questions";
 $result=mysqli_query($conn,$sql);
 $total_records=mysqli_num_rows($result);
 $total_pages=ceil($total_records/$num_per_page);

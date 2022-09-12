@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TICKTET_INFO>
+  <ticketDetails ticket="7150">
+    <id>14156</id>
+    <ticket_id>7150</ticket_id>
+    <ticket_for>1</ticket_for>
+    <ticket_group>55</ticket_group>
+    <title>windows next gen</title>
+    <description>&lt;p&gt;windows next genration&lt;/p&gt;</description>
+    <status>Pending</status>
+    <priority>Low</priority>
+    <group_name>1 SLA Calander Test1</group_name>
+    <client_fname>H</client_fname>
+    <client_lname>h</client_lname>
+    <supporter_fname>Malta</supporter_fname>
+    <supporter_lname>Admin</supporter_lname>
+    <message>&lt;p&gt;Dear H h,&lt;/p&gt;
+&lt;p&gt;This is regarding the Ticket # 7150 , which you opened with Malta domains helpdesk. My name is Malta New Admin from malta. I'm sending this message as the initial point of contact.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;You can reply directly on the portal.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://malta.supportsla.com/ticket/?i=1b4ce2204f49a99e98066db49ca16018"&gt;https://malta.supportsla.com/ticket/?i=1b4ce2204f49a99e98066db49ca16018&lt;/a&gt;&lt;/p&gt;</message>
+  </ticketDetails>
+</TICKTET_INFO>
