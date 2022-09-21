@@ -1,7 +1,7 @@
 <?php 
-$conn = mysqli_connect('localhost', 'root', '', 'questionaire');
+$conn = mysqli_connect("localhost","root","Foni@123456","INTHRAJITH");
 
-$sql="select * from questions";
+$sql="select * from pagenation";
 
 $result= mysqli_query($conn,$sql);
 
@@ -17,7 +17,8 @@ $page=1;
 }
 $start_from=($page-1)*5;
 
-$sql="select * from questions limit $start_from,$num_per_page";
+$sql="select * from pagenation limit $start_from,$num_per_page";
+
 $result=mysqli_query($conn,$sql);
 ?>
 <!DOCTYPE html>
@@ -47,6 +48,7 @@ $result=mysqli_query($conn,$sql);
             background:lightblue;
         }
         .table {
+           
             margin-top:10px;
             border:1px;
             margin-left:10px;
@@ -63,27 +65,26 @@ $result=mysqli_query($conn,$sql);
 <table class="table table-bordered">
 <tr>
 <th>ID</th>
-<th>questions</th>
+<th>Temp</th>
 </tr>
 
 <?php
 
-                                                   //Data retrive to database
+//Data retrive to database
 while($rows=mysqli_fetch_array($result))
 {
 ?>
 <tr>
-    <td><p class="items"><?php echo $rows['qid'];?><p></td>
-    <td><p class="items"><?php echo $rows['questions']?><p></td>
-    </tr>
+    <td><p class="items"><?php echo $rows['id'];?><p></td>
+    <td><p class="items"><?php echo $rows['Temp'];?><p></td>
+</tr>
 <?php
 }
 ?>
 </table>
-                                                    
 <?php
-                                                //pagenation          
-$sql="select * from questions";
+//pagenation
+$sql="select * from pagenation";
 $result=mysqli_query($conn,$sql);
 $total_records=mysqli_num_rows($result);
 $total_pages=ceil($total_records/$num_per_page);
@@ -97,8 +98,6 @@ for($i=1;$i<=$total_pages;$i++)
     else{
         echo "<a class='link 'href='pagenation.php?page=".$i."'>".$i."</a>";
     }
-    
-    
 }
  echo "<p class='page'>Total_No_Pages=$total_pages</p>";
  echo "<p class='page'>Current_Page=$page</p>";
